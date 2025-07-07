@@ -8,7 +8,13 @@ import { FaUniversity } from "react-icons/fa";
 import { LuUniversity } from "react-icons/lu";
 
 export default function Home() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<{
+    name: string;
+    image: string;
+    date: string;
+    tag: string;
+    description: string;
+  } | null>(null);
 
   const navItems = ["Home", "About", "Skills", "Education", "Projects"];
 
