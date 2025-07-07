@@ -12,8 +12,6 @@ export default function Home() {
 
   const navItems = ["Home", "About", "Skills", "Education", "Projects"];
 
-    
-
   const skillList = [
     {
       title: "Frontend Development",
@@ -94,16 +92,16 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <div className="w-64 h-64 rounded-full overflow-hidden border border-black shadow hover:scale-105 transition duration-300">
-          <Image
-            src="/profile.png"
-            alt="portrait"
-            width={256}
-            height={256}
-            className="object-cover w-full h-full"
-          />   </div>
+            <Image
+              src="/profile.png"
+              alt="portrait"
+              width={256}
+              height={256}
+              className="object-cover w-full h-full"
+            />{" "}
+          </div>
         </motion.div>
-        
-     
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -132,13 +130,13 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-        ><div className="font-bold text-2xl">
-          Software Engineering
+        >
+          <div className="font-bold text-2xl">Software Engineering</div>
+          <div>
+            Coding with heart, designing with purpose — making technology feel
+            human.
           </div>
-          <div>Coding with heart, designing with purpose — making technology feel
-        human.
-            </div></motion.div>
-        
+        </motion.div>
       </section>
 
       {/* About Section */}
@@ -242,119 +240,125 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-        <h2 className="text-4xl md:text-5xl font-bold mb-16  inline-block pb-2">
-          Education
-        </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16  inline-block pb-2">
+            Education
+          </h2>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
-          {/* UNIVERSITY */}
-          <div className="bg-white border p-6 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-all duration-300">
-            <div className="flex justify-center mb-4">
-              <FaUniversity className="text-6xl text-black" />
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
+            {/* UNIVERSITY */}
+            <div className="bg-white border p-6 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-all duration-300">
+              <div className="flex justify-center mb-4">
+                <FaUniversity className="text-6xl text-black" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-2">
+                University of Phayao
+              </h3>
+              <p className="text-black font-medium mb-2">
+                Bachelor of Engineering (Software Engineering)
+              </p>
+              <p className="text-sm text-black">GPA: 3.32</p>
             </div>
-            <h3 className="text-2xl font-semibold mb-2">
-              University of Phayao
-            </h3>
-            <p className="text-black font-medium mb-2">
-              Bachelor of Engineering (Software Engineering)
-            </p>
-            <p className="text-sm text-black">GPA: 3.32</p>
-          </div>
 
-          {/* SCHOOL */}
-          <div className="bg-white/80 border p-6 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-all duration-300">
-            <div className="flex justify-center mb-4">
-              <LuUniversity className="text-6xl text-black" />
+            {/* SCHOOL */}
+            <div className="bg-white/80 border p-6 rounded-2xl shadow-xl backdrop-blur-md hover:scale-105 transition-all duration-300">
+              <div className="flex justify-center mb-4">
+                <LuUniversity className="text-6xl text-black" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-2">
+                Phayaophitthayakhom School
+              </h3>
+              <p className="text-black font-medium mb-2">Science & Math</p>
             </div>
-            <h3 className="text-2xl font-semibold mb-2">
-              Phayaophitthayakhom School
-            </h3>
-            <p className="text-black font-medium mb-2">Science & Math</p>
           </div>
-        </div>
         </motion.div>
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="bg-white text-black py-24 px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto text-center"
-      >
-        <h2 className="text-4xl font-bold mb-12 inline-block pb-2">Projects</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto text-center"
+        >
+          <h2 className="text-4xl font-bold mb-12 inline-block pb-2">
+            Projects
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-          {projects.map((project, idx) => (
-            <div
-              key={idx}
-              onClick={() => setSelectedProject(project)}
-              className="bg-gray-100 p-4 rounded-xl shadow hover:scale-105 transition text-left cursor-pointer"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+            {projects.map((project, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedProject(project)}
+                className="bg-gray-100 p-4 rounded-xl shadow hover:scale-105 transition text-left cursor-pointer"
+              >
+                <div className="w-full h-40 relative rounded-md overflow-hidden mb-4">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-md"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold">{project.name}</h3>
+                <p className="text-sm text-gray-500">{project.date}</p>
+                <p className="text-sm italic text-gray-600 mb-2">
+                  {project.tag}
+                </p>
+                <p className="text-gray-700 text-sm line-clamp-3">
+                  {project.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Modal */}
+        {selectedProject && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-xl p-6 max-w-3xl w-full relative shadow-xl overflow-auto max-h-[90vh]"
             >
-              <div className="w-full h-40 relative rounded-md overflow-hidden mb-4">
+              <button
+                className="absolute top-3 right-4 text-black text-4xl font-bold z-10"
+                onClick={() => setSelectedProject(null)}
+              >
+                &times;
+              </button>
+              <div className="relative w-full h-64 md:h-96 mb-4">
                 <Image
-                  src={project.image}
-                  alt={project.name}
+                  src={selectedProject.image}
+                  alt={selectedProject.name}
                   layout="fill"
                   objectFit="cover"
                   className="rounded-md"
                 />
               </div>
-              <h3 className="text-xl font-semibold">{project.name}</h3>
-              <p className="text-sm text-gray-500">{project.date}</p>
-              <p className="text-sm italic text-gray-600 mb-2">
-                {project.tag}
+              <h3 className="text-2xl font-bold mb-2">
+                {selectedProject.name}
+              </h3>
+              <p className="text-sm text-gray-500 mb-1">
+                {selectedProject.date}
               </p>
-              <p className="text-gray-700 text-sm line-clamp-3">
-                {project.description}
+              <p className="text-sm italic text-gray-600 mb-4">
+                {selectedProject.tag}
               </p>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Modal */}
-      {selectedProject && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4"
-          onClick={() => setSelectedProject(null)}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 40 }}
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside modal
-            className="bg-white rounded-xl p-6 max-w-3xl w-full relative shadow-xl overflow-auto max-h-[90vh]"
-          >
-            <button
-              className="absolute top-3 right-4 text-black text-4xl font-bold z-10"
-              onClick={() => setSelectedProject(null)}
-            >
-              &times;
-            </button>
-            <div className="relative w-full h-64 md:h-96 mb-4">
-              <Image
-                src={selectedProject.image}
-                alt={selectedProject.name}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-md"
-              />
-            </div>
-            <h3 className="text-2xl font-bold mb-2">{selectedProject.name}</h3>
-            <p className="text-sm text-gray-500 mb-1">{selectedProject.date}</p>
-            <p className="text-sm italic text-gray-600 mb-4">
-              {selectedProject.tag}
-            </p>
-            <p className="text-gray-700 text-base">
-              {selectedProject.description}
-            </p>
-          </motion.div>
-        </div>
-      )}
-    </section>
+              <p className="text-gray-700 text-base">
+                {selectedProject.description}
+              </p>
+            </motion.div>
+          </div>
+        )}
+      </section>
     </main>
   );
 }
