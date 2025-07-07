@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black font-sans scroll-smooth">
       {/* Navbar */}
-      <nav className="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-md shadow px-6 py-4 flex justify-center">
+      <nav className="fixed top-0 z-50 w-full bg-black/80 text-white backdrop-blur-md shadow px-6 py-4 flex justify-center">
         <div className="flex gap-6 md:gap-10 text-sm font-semibold uppercase tracking-wide">
           {navItems.map((item) => (
             <Link
@@ -80,7 +80,7 @@ export default function Home() {
               className="relative group cursor-pointer hover:opacity-60 transition"
             >
               {item}
-              <span className="absolute -bottom-1 left-0 h-0.5 w-full scale-x-0 group-hover:scale-x-100 bg-black transition-transform origin-left duration-300" />
+              <span className="absolute -bottom-1 left-0 h-0.5 w-full scale-x-0 group-hover:scale-x-100 bg-white transition-transform origin-left duration-300" />
             </Link>
           ))}
         </div>
