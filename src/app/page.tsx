@@ -12,6 +12,8 @@ export default function Home() {
 
   const navItems = ["Home", "About", "Skills", "Education", "Projects"];
 
+    
+
   const skillList = [
     {
       title: "Frontend Development",
@@ -130,8 +132,12 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-        >Coding with heart, designing with purpose — making technology feel
-        human.</motion.div>
+        ><div className="font-bold text-2xl">
+          Software Engineering
+          </div>
+          <div>Coding with heart, designing with purpose — making technology feel
+        human.
+            </div></motion.div>
         
       </section>
 
@@ -271,42 +277,84 @@ export default function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="bg-white text-black py-24 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-5xl mx-auto text-center"
-        >
-          <h2 className="text-4xl font-bold mb-12  inline-block pb-2">
-            Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-            {projects.map((project, idx) => (
-              <div
-                key={idx}
-                className="bg-gray-100 p-4 rounded-xl shadow hover:scale-105 transition text-left"
-              >
-                <div className="w-full h-40 relative rounded-md overflow-hidden mb-4">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-md"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold">{project.name}</h3>
-                <p className="text-sm text-gray-500">{project.date}</p>
-                <p className="text-sm italic text-gray-600 mb-2">
-                  {project.tag}
-                </p>
-                <p className="text-gray-700 text-sm">{project.description}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="max-w-5xl mx-auto text-center"
+      >
+        <h2 className="text-4xl font-bold mb-12 inline-block pb-2">Projects</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+          {projects.map((project, idx) => (
+            <div
+              key={idx}
+              onClick={() => setSelectedProject(project)}
+              className="bg-gray-100 p-4 rounded-xl shadow hover:scale-105 transition text-left cursor-pointer"
+            >
+              <div className="w-full h-40 relative rounded-md overflow-hidden mb-4">
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-md"
+                />
               </div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
+              <h3 className="text-xl font-semibold">{project.name}</h3>
+              <p className="text-sm text-gray-500">{project.date}</p>
+              <p className="text-sm italic text-gray-600 mb-2">
+                {project.tag}
+              </p>
+              <p className="text-gray-700 text-sm line-clamp-3">
+                {project.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Modal */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside modal
+            className="bg-white rounded-xl p-6 max-w-3xl w-full relative shadow-xl overflow-auto max-h-[90vh]"
+          >
+            <button
+              className="absolute top-3 right-4 text-black text-4xl font-bold z-10"
+              onClick={() => setSelectedProject(null)}
+            >
+              &times;
+            </button>
+            <div className="relative w-full h-64 md:h-96 mb-4">
+              <Image
+                src={selectedProject.image}
+                alt={selectedProject.name}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-md"
+              />
+            </div>
+            <h3 className="text-2xl font-bold mb-2">{selectedProject.name}</h3>
+            <p className="text-sm text-gray-500 mb-1">{selectedProject.date}</p>
+            <p className="text-sm italic text-gray-600 mb-4">
+              {selectedProject.tag}
+            </p>
+            <p className="text-gray-700 text-base">
+              {selectedProject.description}
+            </p>
+          </motion.div>
+        </div>
+      )}
+    </section>
     </main>
   );
 }
