@@ -43,7 +43,13 @@ export default function Home() {
       date: "Jul 2024 - Sep 2024",
       tag: "Front-end Development,Back-end Development,UX/UI",
       description:
-        "In this project, I have completed the following six parts Part 1 organized SRS documents Part 2 collected Requirements Part 3 designed the Admin page Part 4 created the Customer Journey (user) Part 5 created the Customer Journey (administrator) Part 6 created the Customer Journey (article writer)",
+        "In this project, I have completed the following six parts:\n" +
+        "Part 1 organized SRS documents\n" +
+        "Part 2 collected Requirements\n" +
+        "Part 3 designed the Admin page\n" +
+        "Part 4 created the Customer Journey (user)\n" +
+        "Part 5 created the Customer Journey (administrator)\n" +
+        "Part 6 created the Customer Journey (article writer)",
     },
     {
       name: "Jobhouse",
@@ -161,13 +167,19 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-4 inline-block pb-1">
               About Me
             </h2>
-            <p className="text-lg leading-relaxed mb-6">
+            <p className="text-lg leading-relaxed mb-6 whitespace-pre-line">
               My name is Kittisak Wongraja, a 3rd-year Software Engineering
               student at the University of Phayao. I am seeking an internship in
               Front-End , UX/UI Design, or Business Analysis (BA) from November
-              2025 to March 2026. I have experience in web development using
+              2025 to March 2026.
+              <br></br>
+              <br></br>
+               I have experience in web development using
               React, Next.js, and back-end technologies. I'm also familiar with
-              UX/UI design, system analysis, and writing SRS documents. I'm
+              UX/UI design, system analysis, and writing SRS documents.
+              <br></br>
+              <br></br>
+              I'm
               eager to learn and grow through real-world experience.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 text-black">
@@ -358,7 +370,7 @@ export default function Home() {
               <p className="text-sm italic text-gray-600 mb-4">
                 {selectedProject.tag}
               </p>
-              <p className="text-gray-700 text-base">
+              <p className="text-gray-700 text-base whitespace-pre-line">
                 {selectedProject.description}
               </p>
             </motion.div>
