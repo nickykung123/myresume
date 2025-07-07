@@ -85,15 +85,23 @@ export default function Home() {
         id="home"
         className="pt-20 pb-24 px-6 max-w-4xl mx-auto text-center flex flex-col justify-center items-center gap-10"
       >
-        <div className="w-64 h-64 rounded-full overflow-hidden border border-black shadow hover:scale-105 transition duration-300">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="w-64 h-64 rounded-full overflow-hidden border border-black shadow hover:scale-105 transition duration-300">
           <Image
             src="/profile.png"
             alt="portrait"
             width={256}
             height={256}
             className="object-cover w-full h-full"
-          />
-        </div>
+          />   </div>
+        </motion.div>
+        
+     
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -116,21 +124,15 @@ export default function Home() {
               <span className="text-black">Kittisak Wongraja </span>
             </div>
           </motion.h1>
-          <motion.p
-            className="text-lg md:text-xl text-black mb-8 leading-relaxed"
-            animate={{
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-          ></motion.p>
         </motion.div>
-        Coding with heart, designing with purpose — making technology feel
-        human.
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >Coding with heart, designing with purpose — making technology feel
+        human.</motion.div>
+        
       </section>
 
       {/* About Section */}
@@ -140,15 +142,8 @@ export default function Home() {
         className="bg-gray-100 text-black py-24 px-6 flex items-center justify-center"
       >
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        ></motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
@@ -235,6 +230,12 @@ export default function Home() {
         id="education"
         className="bg-gray-100 text-black py-24 px-6 text-center"
       >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
         <h2 className="text-4xl md:text-5xl font-bold mb-16  inline-block pb-2">
           Education
         </h2>
@@ -265,6 +266,7 @@ export default function Home() {
             <p className="text-black font-medium mb-2">Science & Math</p>
           </div>
         </div>
+        </motion.div>
       </section>
 
       {/* Projects Section */}
