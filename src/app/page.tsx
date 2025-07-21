@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { FaUniversity } from "react-icons/fa";
 import { LuUniversity } from "react-icons/lu";
+import { url } from "inspector";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<{
@@ -16,7 +17,19 @@ export default function Home() {
     description: string;
   } | null>(null);
 
-  const navItems = ["Home", "About", "Skills", "Education", "Projects"];
+  const navItems = ["Home", "About", "Skills", "Education", "Projects","Certificate"];
+
+  const [selectedCertificate, setSelectedCertificate] = useState<{
+    image: string;
+    title: string;
+  } | null>(null);
+
+  const certificates = [
+    { image: "/borntoDev.png", title: "BorntoDev Certificate" },
+    { image: "/4K.jpg", title: "Empty" },
+    { image: "/4KK.jpg", title: "Empty" },
+  ];
+  
 
   const skillList = [
     {
@@ -377,6 +390,84 @@ export default function Home() {
           </div>
         )}
       </section>
+
+      {/* Certificate Section */}
+      <section
+        id="certificate"
+        className="bg-gray-100 text-black py-24 px-6"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto text-center"
+        >
+          <h2 className="text-4xl font-bold mb-12 inline-block pb-2">
+            Certificate
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-10">
+            {certificates.map((cert, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedCertificate(cert)}
+                className="bg-white border border-black rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 cursor-pointer"
+              >
+                <div className="relative w-full aspect-[4/3]">
+                  <Image
+                    src={cert.image}
+                    alt={cert.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-t-xl"
+                  />
+                </div>
+                <div className="p-4 text-center font-medium">
+                  {cert.title}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Modal: Full View Certificate */}
+      {selectedCertificate && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4"
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-xl p-4 max-w-4xl w-full relative shadow-xl overflow-auto max-h-[90vh]"
+          >
+            <button
+              className="absolute top-3 right-4 text-black text-4xl font-bold z-10"
+              onClick={() => setSelectedCertificate(null)}
+            >
+              &times;
+            </button>
+            <div className="w-full flex justify-center">
+              <div className="relative w-full max-w-3xl aspect-[4/3]">
+                <Image
+                  src={selectedCertificate.image}
+                  alt={selectedCertificate.title}
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-md"
+                />
+              </div>
+            </div>
+            <div className="mt-4 text-center text-xl font-semibold">
+              {selectedCertificate.title}
+            </div>
+          </motion.div>
+        </div>
+      )}
     </main>
   );
 }
