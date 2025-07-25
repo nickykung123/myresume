@@ -197,7 +197,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 text-black">
               <a
-                href="/resume.pdf"
+                href="/resumekittisak.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-black text-black hover:bg-black hover:text-white px-6 py-2 rounded-full font-medium transition"
