@@ -26,8 +26,8 @@ export default function Home() {
 
   const certificates = [
     { image: "/borntoDev.png", title: "BorntoDev Certificate" },
-    { image: "/4K.jpg", title: "Empty" },
-    { image: "/4KK.jpg", title: "Empty" },
+    { image: "", title: "Empty" },
+    { image: "", title: "Empty" },
   ];
   
 
