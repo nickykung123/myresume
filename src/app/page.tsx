@@ -26,7 +26,7 @@ export default function Home() {
 
   const certificates = [
     { image: "/borntoDev.png", title: "BorntoDev Certificate" },
-    { image: "/Certificate3.png", title: "Empty" },
+    { image: "/certificate3.png", title: "Empty" },
     { image: "", title: "Empty" },
   ];
   
